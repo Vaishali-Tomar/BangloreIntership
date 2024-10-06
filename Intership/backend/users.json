@@ -1,60 +1,5 @@
 [
   {
-    "id": 1,
-    "username": "samart",
-    "password": "password123"
-  },
-  {
-    "id": 2,
-    "username": "jane_smith",
-    "password": "mypassword"
-  },
-  {
-    "id": 3,
-    "username": "Gautam Gaur",
-    "password": "123456"
-  },
-  {
-    "id": 4,
-    "username": "Gautam ",
-    "password": "123456",
-    "email": "gautam@gmail.com",
-    "mobile": "1234567890",
-    "gender": null,
-    "destination": null,
-    "image": null
-  },
-  {
-    "id": 5,
-    "username": "Gau",
-    "password": "123456",
-    "email": "gau@gmail.com",
-    "mobile": "1234567890",
-    "gender": null,
-    "destination": null,
-    "image": null
-  },
-  {
-    "id": 6,
-    "username": "vaishalitomar@gmail.com",
-    "password": "123456",
-    "email": "abc@gmail.com",
-    "mobile": "1234567890",
-    "gender": "Male",
-    "destination": "delhi",
-    "image": null
-  },
-  {
-    "id": 7,
-    "username": "sam",
-    "password": "123456",
-    "email": "sam@gmail.com",
-    "mobile": "1234567890",
-    "gender": null,
-    "destination": null,
-    "image": null
-  },
-  {
     "id": 8,
     "username": "vais",
     "password": "123456",
@@ -62,56 +7,6 @@
     "mobile": "1234567890",
     "gender": "Male",
     "destination": "noida",
-    "image": null
-  },
-  {
-    "id": 11,
-    "username": "va",
-    "password": "123456",
-    "email": "va@gmail.com",
-    "mobile": "1234567890",
-    "gender": "Male",
-    "destination": "delhi",
-    "image": null
-  },
-  {
-    "id": 12,
-    "username": "hsds",
-    "password": "123456",
-    "email": "hsdsa@gmail.com",
-    "mobile": "1234567890",
-    "gender": "Male",
-    "destination": "delhi",
-    "image": null
-  },
-  {
-    "id": 13,
-    "username": "man",
-    "password": "123456",
-    "email": "man@gmail.com",
-    "mobile": "1234567890",
-    "gender": "Male",
-    "destination": "delhi",
-    "image": null
-  },
-  {
-    "id": 14,
-    "username": "mannu",
-    "password": "123456",
-    "email": "mannu@gmail.com",
-    "mobile": "1234567890",
-    "gender": "Male",
-    "destination": null,
-    "image": null
-  },
-  {
-    "id": 15,
-    "username": "aff",
-    "password": "123456",
-    "email": "aff@gmail.com",
-    "mobile": "1234567890",
-    "gender": "Male",
-    "destination": "delhi",
     "image": null
   },
   {

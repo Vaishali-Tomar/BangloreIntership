@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import UpdateUserForm from './UpdateUserForm';
+
 
 const UserProfile = () => {
   const [user, setUser] = useState(null);
@@ -26,7 +26,6 @@ const UserProfile = () => {
   return (
     <div>
       <h1>User Profile</h1>
-      <UpdateUserForm user={user} />
     </div>
   );
 };
