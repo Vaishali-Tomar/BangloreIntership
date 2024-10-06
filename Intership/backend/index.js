@@ -184,6 +184,51 @@ app.get('/api/users', (req, res) => {
   res.json(users);
 });
 
+app.delete('/api/users/:id', (req, res) => {
+  const userId = parseInt(req.params.id, 10);
+
+  let users = readUsersFromFile(); // Read the current users list from the file
+
+  const userIndex = users.findIndex(u => u.id === userId);
+
+  if (userIndex === -1) {
+    return res.status(404).json({ message: 'User not found' });
+  }
+
+  // If the user has an associated image, delete the image file from the server
+  const user = users[userIndex];
+  if (user.image) {
+    const fs = require('fs');
+    const imagePath = `uploads/${user.image}`; // Assuming your images are stored in the "uploads" folder
+    fs.unlink(imagePath, (err) => {
+      if (err) {
+        console.error('Error deleting image:', err);
+      } else {
+        console.log(`Deleted image: ${imagePath}`);
+      }
+    });
+  }
+
+  // Remove the user from the array
+  users.splice(userIndex, 1);
+
+  writeUsersToFile(users); // Save the updated users array back to the file
+
+  res.json({ message: 'User deleted successfully' });
+});
+
+//   const { id } = req.params;
+//   // Logic to find and delete the user by ID from the database or file
+//   // For example:
+//   const userIndex = users.findIndex(user => user.id === id);
+//   if (userIndex !== -1) {
+//     users.splice(userIndex, 1);
+//     res.status(200).json({ message: 'User deleted successfully!' });
+//   } else {
+//     res.status(404).json({ message: 'User not found.' });
+//   }
+// });
+
 // Ensure 'uploads' directory exists
 const uploadsDir = path.join(__dirname, 'uploads');
 if (!fs.existsSync(uploadsDir)) {

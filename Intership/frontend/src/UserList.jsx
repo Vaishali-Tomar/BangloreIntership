@@ -6,6 +6,7 @@ const UserList = () => {
   const [users, setUsers] = useState([]);
   const [message, setMessage] = useState('');
 
+  // Fetch all users
   const fetchUsers = async () => {
     try {
       const response = await axios.get('/api/users');
@@ -13,6 +14,21 @@ const UserList = () => {
     } catch (error) {
       console.error('Error fetching users:', error);
       setMessage('Error fetching user data');
+    }
+  };
+
+  // Delete a user by ID
+  const handleDelete = async (id) => {
+    try {
+      const response = await axios.delete(`/api/users/${id}`);
+      if (response.status === 200) {
+        setMessage('User deleted successfully!');
+        // Update the user list after deletion
+        setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id));
+      }
+    } catch (error) {
+      console.error('Error deleting user:', error);
+      setMessage('Error deleting user.');
     }
   };
 
@@ -34,6 +50,7 @@ const UserList = () => {
               <th>Gender</th>
               <th>Destination</th>
               <th>Image</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -52,6 +69,14 @@ const UserList = () => {
                       width="50"
                     />
                   )}
+                </td>
+                <td>
+                  <button
+                    className="delete-button"
+                    onClick={() => handleDelete(user.id)}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}

@@ -12,6 +12,7 @@ const UpdateUserForm = ({ user }) => {
     image: null, // To handle the file input
   });
 
+  // Handle input changes for text fields
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -20,16 +21,19 @@ const UpdateUserForm = ({ user }) => {
     }));
   };
 
+  // Handle image file changes
   const handleFileChange = (e) => {
     setFormData((prev) => ({
       ...prev,
-      image: e.target.files[0], // Store the uploaded image
+      image: e.target.files[0], // Storing the uploaded image
     }));
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Create a new FormData object to send the form data and file
     const formDataToSend = new FormData();
     Object.keys(formData).forEach((key) => {
       if (formData[key]) {
@@ -38,6 +42,7 @@ const UpdateUserForm = ({ user }) => {
     });
 
     try {
+      // Send the form data to the server
       const response = await axios.put(`/api/users/${user.id}`, formDataToSend, {
         headers: {
           'Content-Type': 'multipart/form-data',
@@ -65,6 +70,7 @@ const UpdateUserForm = ({ user }) => {
           name="username"
           value={formData.username}
           onChange={handleChange}
+          required
         />
       </div>
       <div>
@@ -74,6 +80,7 @@ const UpdateUserForm = ({ user }) => {
           name="email"
           value={formData.email}
           onChange={handleChange}
+          required
         />
       </div>
       <div>
@@ -83,6 +90,7 @@ const UpdateUserForm = ({ user }) => {
           name="password"
           value={formData.password}
           onChange={handleChange}
+          required
         />
       </div>
       <div>
